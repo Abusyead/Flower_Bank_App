@@ -39,3 +39,27 @@ function clearErrors() {
         el.textContent = '';
     });
 }
+
+
+function handleAdd() {
+    const amountInput = document.getElementById('addAmount');
+    const amount = parseFloat(amountInput.value);
+    
+    if (isNaN(amount)) {
+        document.getElementById('addError').textContent = 'Please enter a valid number';
+        return;
+    }
+    
+    if (amount <= 0) {
+        document.getElementById('addError').textContent = 'Amount must be positive';
+        return;
+    }
+
+    balance += amount;
+    updatebalance();
+    addTransaction('Deposit', amount);
+    hideModals();
+    amountInput.value = '';
+}
+
+
