@@ -21,3 +21,21 @@ function addTransaction(type, amount) {
     };
     transactions.unshift(transaction);
 }
+
+// Modal handling
+function showModal(type) {
+    document.getElementById(`${type}Modal`).classList.remove('hidden');
+}
+
+function hideModals() {
+    document.querySelectorAll('[id$="Modal"]').forEach(modal => {
+        modal.classList.add('hidden');
+    });
+    clearErrors();
+}
+
+function clearErrors() {
+    document.querySelectorAll('[id$="Error"]').forEach(el => {
+        el.textContent = '';
+    });
+}
