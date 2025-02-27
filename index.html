@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+q<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Main/style.css">
-    <title>Document</title>
+    <title>Flower Bank App</title>
 </head>
-<body class="min-h-screen bg-gray-100">
+<body class="bg-gray-100 min-h-screen">
     <div class="container mx-auto p-4" id="dashboard">
         <div class="max-w-md mx-auto bg-white rounded-lg shadow-md p-6">
             <!-- Balance Display -->
@@ -47,11 +47,8 @@
         </div>
     </div>
 
-
-     <!-- add Withdraw -->
-
-
-     <div id="withdrawModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <!-- Withdraw Money Modal -->
+    <div id="withdrawModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
         <div class="bg-white p-6 rounded-lg w-80">
             <h2 class="text-xl font-bold mb-4">Withdraw Money</h2>
             <input type="number" id="withdrawAmount" placeholder="Enter amount" class="w-full p-2 border rounded mb-4">
@@ -67,8 +64,7 @@
         </div>
     </div>
 
-
-        <!-- Transaction History -->
+    <!-- Transaction History -->
     <div id="transactions" class="hidden container mx-auto p-4 max-w-md">
         <div class="bg-white rounded-lg shadow-md p-6">
             <h2 class="text-xl font-bold mb-4">Transaction History</h2>
@@ -91,7 +87,6 @@
             </button>
         </div>
     </div>
-
 
     <script src="script.js" type="module"></script>
 </body>
