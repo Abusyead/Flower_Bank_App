@@ -8,5 +8,16 @@ const transactionListEl = document.getElementById('transactionList');
 function init() {
     balance = 0;
     transactions = [];
-    updateBalance(); 
+    updatebalance(); 
+}
+
+function updatebalance() {
+    balanceEl.textContent = `$${balance.toFixed(2)}`;
+}
+
+// Transaction handling
+function addTransaction(type, amount) {
+    const transaction = {id: Date.now(),date: new Date().toLocaleString(),type,amount,balanceAfter: balance
+    };
+    transactions.unshift(transaction);
 }
