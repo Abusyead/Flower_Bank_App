@@ -8,7 +8,8 @@ const transactionListEl = document.getElementById('transactionList');
 function init() {
     balance = 0;
     transactions = [];
-    updatebalance(); 
+    updatebalance();
+    renderTransactions()
 }
 
 function updatebalance() {
@@ -20,9 +21,10 @@ function addTransaction(type, amount) {
     const transaction = {id: Date.now(),date: new Date().toLocaleString(),type,amount,balanceAfter: balance
     };
     transactions.unshift(transaction);
+    renderTransactions()
 }
 
-// Modal handling
+ 
 function showModal(type) {
     document.getElementById(`${type}Modal`).classList.remove('hidden');
 }
@@ -91,6 +93,45 @@ function handleWithdraw() {
     hideModals();
     amountInput.value = '';
 }
+
+
+// Transaction history
+function renderTransactions() {
+    transactionListEl.innerHTML = transactions.map(transaction => `
+        <tr class="border-b">
+            <td class="py-2">${transaction.date}</td>
+            <td class="${transaction.type === 'Deposit' ? 'text-green-500' : 'text-red-500'}">
+                ${transaction.type}
+            </td>
+            <td>${transaction.amount > 0 ? '+' : ''}${transaction.amount.toFixed(2)}</td>
+        </tr>
+    `).join('');
+}
+
+function showTransactions() {
+    const mainPage = document.getElementById('dashboard');
+    const transactionListSection = document.getElementById('transactions');
+    if (mainPage && transactionListSection) {
+        mainPage.classList.add('hidden');
+        transactionListSection.classList.remove('hidden');
+    } else {
+        console.error('Element(s) not found');
+    }
+}
+
+function hideTransactions() {
+    const mainPage = document.getElementById('dashboard');
+    const transactionListSection = document.getElementById('transactions');
+    if (mainPage && transactionListSection) {
+        transactionListSection.classList.add('hidden');
+        mainPage.classList.remove('hidden');
+    } else {
+        console.error('Element(s) not found');
+    }
+}
+
+ 
+init();
 
 
 
