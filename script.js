@@ -40,6 +40,7 @@ function clearErrors() {
     });
 }
 
+// Add money
 
 function handleAdd() {
     const amountInput = document.getElementById('addAmount');
@@ -61,5 +62,35 @@ function handleAdd() {
     hideModals();
     amountInput.value = '';
 }
+
+
+// Withdraw money
+
+function handleWithdraw() {
+    const amountInput = document.getElementById('withdrawAmount');
+    const amount = parseFloat(amountInput.value);
+    
+    if (isNaN(amount)) {
+        document.getElementById('withdrawError').textContent = 'Please enter a valid number';
+        return;
+    }
+    
+    if (amount <= 0) {
+        document.getElementById('withdrawError').textContent = 'Amount must be positive';
+        return;
+    }
+
+    if (amount > balance) {
+        document.getElementById('withdrawError').textContent = 'Insufficient funds';
+        return;
+    }
+
+    balance -= amount;
+    updatebalance();
+    addTransaction('Withdrawal', -amount);
+    hideModals();
+    amountInput.value = '';
+}
+
 
 

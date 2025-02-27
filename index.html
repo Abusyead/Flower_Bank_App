@@ -51,21 +51,22 @@
      <!-- add Withdraw -->
 
 
-    <div id="withdrawModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+     <div id="withdrawModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
         <div class="bg-white p-6 rounded-lg w-80">
             <h2 class="text-xl font-bold mb-4">Withdraw Money</h2>
             <input type="number" id="withdrawAmount" placeholder="Enter amount" class="w-full p-2 border rounded mb-4">
             <div class="flex gap-4">
-                <button class="flex-1 bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+                <button onclick="handleWithdraw()" class="flex-1 bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
                     Withdraw
                 </button>
-                <button class="flex-1 bg-gray-500 text-white p-2 rounded hover:bg-gray-600">
+                <button onclick="hideModals()" class="flex-1 bg-gray-500 text-white p-2 rounded hover:bg-gray-600">
                     Cancel
                 </button>
             </div>
             <p id="withdrawError" class="text-red-500 mt-2 text-sm"></p>
         </div>
     </div>
+
 
         <!-- Transaction History -->
 
